@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 262.1 83.3% 57.8%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 142.1 76.2% 36.3%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 262.1 83.3% 57.8%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: Inter, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(217.2deg 32.6% 17.5%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(215deg 20.2% 65.1%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(210deg 40% 98%);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--accent));
+  }
+
+  50% {
+    box-shadow: 0 0 20px hsl(var(--accent)), 0 0 30px hsl(var(--accent));
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgb(15 23 42 / 80%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 10%);
+}
+
+/* Futuristic button hover effects */
+.btn-futuristic {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-futuristic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 10%), transparent);
+  transition: left 0.5s;
+}
+
+.btn-futuristic:hover::before {
+  left: 100%;
+}
+
+/* Hand tracking visualization */
+.hand-joint {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: hsl(var(--accent));
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px hsl(var(--accent));
+}
+
+.hand-connection {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+  transform-origin: left center;
+  box-shadow: 0 0 5px hsl(var(--primary));
+}
+
+/* Status indicators */
+.status-active {
+  background: hsl(var(--accent));
+  box-shadow: 0 0 10px hsl(var(--accent));
+}
+
+.status-inactive {
+  background: hsl(var(--muted));
+}
+
+/* Gesture card hover effects */
+.gesture-card {
+  transition: all 0.3s ease;
+  border: 1px solid hsl(var(--border));
+}
+
+.gesture-card:hover {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 20px hsl(var(--primary), 0.3);
+  transform: translateY(-2px);
+}
+
+/* Progress bar enhancements */
+.progress-enhanced {
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+  box-shadow: 0 0 10px hsl(var(--primary), 0.5);
+}
+
+/* Camera feed overlay */
+.camera-overlay {
+  background: radial-gradient(circle at center, transparent 30%, rgb(0 0 0 / 30%) 70%);
+}
+
+/* Sidebar active state */
+.sidebar-active {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  box-shadow: 0 0 15px hsl(var(--primary), 0.4);
+}
+
+/* Training area target */
+.training-target {
+  border: 2px dashed hsl(var(--accent));
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Settings slider track */
+.slider-track {
+  background: linear-gradient(90deg, hsl(var(--muted)), hsl(var(--primary)));
+}
+
+/* Notification badges */
+.notification-badge {
+  background: hsl(var(--accent));
+  color: hsl(var(--background));
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px hsl(var(--accent));
+}
